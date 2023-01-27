@@ -1,10 +1,11 @@
-Django開発環境テンプレート
+Django開発環境スターター
 
-・django-admin startproject your_project_name
-・python3 manage.py runserver
-・django-admin startapp myapp
-・アプリにurl.pyを追加
-・サーバーで/adminにアクセスすると管理ページに行く
+プロジェクトとアプリを作成
+django-admin startproject your_project_name
+python3 manage.py runserver
+（サーバーで/adminにアクセスすると管理ページに飛ぶ）
+django-admin startapp myapp
+アプリにurl.pyを追加
 
 Database
 ・python3 manage.py showmigrations
@@ -18,7 +19,10 @@ Database
 settings.py
 ・LANGUAGE_CODE = 'ja'
 ・TIME_ZONE = 'Asia/Tokyo'
-・STATIC_ROOT = 'path/to/static'
+・STATIC_URL = '/static/'
+・STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static')
+  )
 ・ALLOWED_HOSTS = ['*']
 ・開発環境と本番環境で読み込む.envを分岐
 import os
@@ -28,3 +32,7 @@ if os.environ.get('APP_ENV') == 'prod':
     load_dotenv('.env.prod')
 else:
     load_dotenv('.env.dev')
+
+プロジェクト直下に作成
+・static
+・templates
