@@ -6,6 +6,11 @@ Django開発環境テンプレート
 ・アプリにurl.pyを追加
 ・サーバーで/adminにアクセスすると管理ページに行く
 
+Database
+・python3 manage.py showmigrations
+・python3 manage.py makemigrations
+・python3 manage.py migrate
+
 settings.py
 ・LANGUAGE_CODE = 'ja'
 ・TIME_ZONE = 'Asia/Tokyo'

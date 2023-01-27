@@ -1,5 +1,10 @@
+<!-- コメント -->
+{% comment %}
 <!-- テンプレートの継承 -->
 <!-- {% extends "hoge.html" %} -->
+<!-- テンプレート呼び出し -->
+<!-- {% include 'piyo.html' %} -->
+{% endcomment %}
 
 {% load static %}
 <!DOCTYPE html>
@@ -7,14 +12,34 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <link rel="stylesheet" href="{% static 'styles.css' %}">
   <!-- <link rel="stylesheet" href="/static/styles.css"> -->
-  <title>Document</title>
+
+  <title>Djangoテンプレート</title>
   <!-- 埋め込みを待つときも、埋め込むときも同じ -->
   <!-- {% block styles %}{% endblock %} -->
 </head>
 <body>
-  テンプレート
   {{ mykey }} viewから渡された変数を使う
+
+  <!-- 上:input:hidden、下:valueのみ -->
+  {{ csrf_token }}
+  csrf {% csrf_token %}
+
+  <!-- viewから受け取った配列を展開、rangeや配列[]は使えない -->
+  {% for i in array %}
+    {{ i }}
+  {% endfor %}
+
+  {% if 'name' == 'namae' %}
+    this is if block
+  {% elif 'name' == 'name' %}
+    this is elif block
+  {% else %}
+    this is else block
+  {% endif %}
+
+  <a href="{{ request.scheme }}://{{ request.get_host }}"></a>
 </body>
 </html>
