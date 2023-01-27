@@ -11,6 +11,10 @@ Database
 ・python3 manage.py makemigrations
 ・python3 manage.py migrate
 
+カスタムコマンド
+・myapp/management/commands/command_name.pyを作成
+・python3 manage.py command_name
+
 settings.py
 ・LANGUAGE_CODE = 'ja'
 ・TIME_ZONE = 'Asia/Tokyo'
